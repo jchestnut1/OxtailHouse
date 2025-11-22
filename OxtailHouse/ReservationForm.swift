@@ -33,6 +33,12 @@ struct ReservationForm: View {
                     .textInputAutocapitalization(.words)
                     .autocorrectionDisabled(true)
                 
+                if userName.isEmpty {
+                    Text("Please enter a username.")
+                        .font(.footnote)
+                        .foregroundColor(.red)
+                }
+                
                 Stepper("Guest:  \(guestCount)", value: $guestCount, in: 1 ... maxGuest)
                 
                 Stepper("Children: \(numberChildren)", value: $numberChildren, in: 0 ... maxChildren)
@@ -41,6 +47,13 @@ struct ReservationForm: View {
             Section(header:Text("Contact")){
                 TextField("Phone" , text: $phoneNumber)
                     .keyboardType(.numberPad)
+                
+                if phoneNumber.isEmpty {
+                    Text("Contact numbers are required for Reservations.")
+                        .font(.footnote)
+                        .bold(true)
+                        .foregroundColor(.red)
+                }
             }
             
             Section(header:Text("Occasion")){
