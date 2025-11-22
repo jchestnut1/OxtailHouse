@@ -45,6 +45,11 @@
 			path = OxtailHouseUITests;
 			sourceTree = "<group>";
 		};
+		CFA084E12ECEAE4F00D1A4D1 /* Practices */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Practices;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +80,7 @@
 		CFA084AE2ECE79AB00D1A4D1 = {
 			isa = PBXGroup;
 			children = (
+				CFA084E12ECEAE4F00D1A4D1 /* Practices */,
 				CFA084B92ECE79AB00D1A4D1 /* OxtailHouse */,
 				CFA084C72ECE79AC00D1A4D1 /* OxtailHouseTests */,
 				CFA084D12ECE79AC00D1A4D1 /* OxtailHouseUITests */,
@@ -109,6 +115,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				CFA084B92ECE79AB00D1A4D1 /* OxtailHouse */,
+				CFA084E12ECEAE4F00D1A4D1 /* Practices */,
 			);
 			name = OxtailHouse;
 			packageProductDependencies = (
