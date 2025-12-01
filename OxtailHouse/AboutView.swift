@@ -9,7 +9,10 @@ import SwiftUI
 
 struct AboutView: View {
     var body: some View {
+        
+        
         VStack {
+           
             Text("About Little Lemon")
                 .font(.title)
                 .fontWeight(.bold)
@@ -34,6 +37,7 @@ struct AboutView: View {
                     .font(.title)
                     .foregroundColor(.yellow)
             }
+            
                 
         }
         .padding()
