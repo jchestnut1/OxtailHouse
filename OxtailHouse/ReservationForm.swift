@@ -89,7 +89,7 @@ struct ReservationForm: View {
             }
 
             Section {
-                Button("Preview reservation") {
+                Button("Preview Reservation") {
                     validateAndShowSummary()
                     if showPreview {
                         previewText = """

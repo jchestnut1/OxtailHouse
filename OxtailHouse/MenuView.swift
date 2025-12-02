@@ -19,7 +19,10 @@ struct MenuView: View {
         "Oxtail Soup" : 15.99, // $1
         "Oxtail Tacos" : 25.99,//$2
         "Curry Oxtail" : 26.99,
-        "Smoked Oxtail" : 32.99
+        "Smoked Oxtail" : 32.99,
+        "6 Piece Chicken Wings" : 14.99,
+        "12 Piece Chicken Wings" : 18.99,
+        "20 Piece Chicken Wings" : 26.99
     ]
     
     var sortedMenu: [(name: String, price: Double)]{
