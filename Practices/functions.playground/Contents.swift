@@ -80,3 +80,44 @@ func studentMessage(name: String) -> String {
 let name = studentMessage(name: "Jay")
 print(name)
 
+
+
+// ----------- Functions Session 3 ----------------------
+
+func greetCustomer(name: String){
+    print("Welcome, \(name)!")
+}
+
+greetCustomer(name: "Jay")
+
+func printMenuItem(name: String, price: Double){
+    print("\(name): $\(price)")
+}
+printMenuItem(name: "Oxtails", price: 32.99)
+
+
+//creating a function that is returning something, return data type is needed
+func totalWithTaxes(price: Double) -> Double{
+    return price * 1.00
+}
+let amount = totalWithTaxes(price:100)
+print(amount)
+
+
+//using myPrint function from function on line 93
+let menu = [
+    "Pizza": 5.99,
+    "Soup": 3.99,
+    "Steak": 13.99
+]
+for (aName, aPrice) in menu{
+    printMenuItem(name:aName, price:aPrice)
+}
+
+
+//render row for menu
+func renderRow(name: String, price: Double){
+    print("Row -> \(name), $\(price)")
+}
+renderRow(name:"Tacos", price: 7.50)
+renderRow(name:"Steak", price: 13.99)

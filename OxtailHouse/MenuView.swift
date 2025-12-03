@@ -90,7 +90,7 @@ struct MenuView: View {
                 Toggle("Show only affordable items < $22.00", isOn: $showAfforableOnly)
             }
             .padding()
-                
+            
             
             if showMessage{
                 Text("Welcome to Oxtail House")
@@ -109,17 +109,14 @@ struct MenuView: View {
             .sheet(isPresented: $showDesserts){
                 DessertView()
             }
-        
+            
             List{
-                ForEach(displayedMenu, id: \.name){ name, price in
-                    HStack{
-                        Text(name)
-                        Spacer()
-                        Text("$\(price, specifier: "%.2f")")
-                    }
+                ForEach(displayedMenu, id: \.name){ item in
+                    MenuItemRowView(name:item.name, price:item.price)
                 }
             }
         }
+        
         
         Section{
             VStack{
@@ -128,7 +125,7 @@ struct MenuView: View {
                 }
                 HStack{
                     Text("Highest Price: $\(getHighestPrice(), specifier: "%.2f")")
-                   
+                    
                 }
                 HStack{
                     Text("Lowest Price: $\(getLowestPrice(), specifier: "%.2f")")
@@ -137,13 +134,13 @@ struct MenuView: View {
                     Text("Average Price: $\(averagePrices, specifier: "%.2f")")
                 }
             }
+            
         }
-        }
-    
-    
+        
+        
     }
-
-
+    
+}
 #Preview {
     MenuView()
 }
