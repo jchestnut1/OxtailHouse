@@ -12,11 +12,15 @@ struct MenuItemRowView: View {
     let name: String
     let price: Double
     
-    
+
     var body: some View {
+        let isPremium = price > 25.99
         HStack{
-            Text(name)
-                .font(.headline)
+            HStack{
+                Text(name)
+                    .font(.headline)
+                if isPremium{PremiumBadge()}
+            }
             
             Spacer()
             

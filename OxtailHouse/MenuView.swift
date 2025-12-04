@@ -9,21 +9,22 @@ import SwiftUI
 
 struct MenuView: View {
     
-    @State private var showMessage = false
     @State private var showAfforableOnly = false
     @State private var showDesserts = false
+    @State private var showPremiumItems = false
     
     let menuItems = [
         //key, value
         "Oxtail and Rice" : 27.99, // $0
         "Oxtail Soup" : 15.99, // $1
-        "Oxtail Tacos" : 25.99,//$2
+        "Oxtail Tacos" : 26.50,//$2
         "Curry Oxtail" : 26.99,
         "Smoked Oxtail" : 32.99,
-        "6 Piece Chicken Wings" : 14.99,
-        "12 Piece Chicken Wings" : 18.99,
-        "20 Piece Chicken Wings" : 26.99
+        "10 Piece Chicken Wings" : 15.99,
+        "15 Piece Chicken Wings" : 19.99,
+        "20 Piece Chicken Wings" : 25.99
     ]
+    
     
     var sortedMenu: [(name: String, price: Double)]{
         menuItems
@@ -33,14 +34,17 @@ struct MenuView: View {
     
     var displayedMenu: [(name: String, price: Double)]{
         if showAfforableOnly{
-            return sortedMenu.filter{ $0.price < 22 }
-        }else{
+            return sortedMenu.filter{ $0.price < 18 }
+        }else if showPremiumItems{
+            return sortedMenu.filter{ $0.price > 25.99}
+        } else{
             return sortedMenu
         }
     }
     
     var averagePrices: Double {
-        let price = menuItems.values
+        let price = displayedMenu.map (\.price)
+        if price.isEmpty{return 0.00}
         let total = price.reduce(0, +)
         return total / Double(price.count)
     }
@@ -69,6 +73,15 @@ struct MenuView: View {
         return lowest
     }
     
+    func getPremiumCount() -> Int {
+        displayedMenu.filter { $0.price > 25.99 }.count
+    }
+    
+    func getRegularCount() -> Int {
+        displayedMenu.filter { $0.price <= 25.99 }.count
+    }
+    
+    
     var body: some View {
         //let sortedMenu = menuItems.sorted { $1.key > $0.key }
         
@@ -86,17 +99,11 @@ struct MenuView: View {
             }
             
             VStack{
-                Toggle("Show Welcome Message", isOn: $showMessage)
-                Toggle("Show only affordable items < $22.00", isOn: $showAfforableOnly)
+                Toggle("Affordable Items", isOn: $showAfforableOnly)
+                Toggle("Premium Items", isOn: $showPremiumItems)
             }
             .padding()
             
-            
-            if showMessage{
-                Text("Welcome to Oxtail House")
-                    .font(.headline)
-                    .foregroundColor(.green)
-            }
             
             Button("View Desserts"){
                 showDesserts = true
@@ -121,9 +128,14 @@ struct MenuView: View {
         Section{
             VStack{
                 HStack{
-                    Text("Total Items: \(getTotalItems())")
+                    Text("Total: \(getTotalItems()) |")
+                    Text("Premium: \(getPremiumCount()) |")
+                    Text("Regular: \(getRegularCount())")
                 }
-                HStack{
+                .background(Color.green.opacity(0.3))
+                .cornerRadius(10)
+                .padding(10)
+                /*HStack{
                     Text("Highest Price: $\(getHighestPrice(), specifier: "%.2f")")
                     
                 }
@@ -132,7 +144,7 @@ struct MenuView: View {
                 }
                 HStack{
                     Text("Average Price: $\(averagePrices, specifier: "%.2f")")
-                }
+                }*/
             }
             
         }
