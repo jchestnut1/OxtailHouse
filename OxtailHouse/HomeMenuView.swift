@@ -9,6 +9,18 @@ import SwiftUI
 
 struct HomeMenuView: View {
     var body: some View {
+        
+        VStack{
+            Image("littleLemonLogo")
+                .resizable()
+                .scaledToFit()
+                .frame(height: 50)
+            
+            Text("Oxtail House")
+                .font(.title2)
+                .bold()
+        }
+        
         NavigationStack{
             List{
                 NavigationLink("Menu View"){

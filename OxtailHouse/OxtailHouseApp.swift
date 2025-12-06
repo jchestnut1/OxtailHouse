@@ -11,7 +11,7 @@ import SwiftUI
 struct OxtailHouseApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeMenuView()
         }
     }
 }

@@ -12,11 +12,13 @@ class Customer: Identifiable {
     var name: String
     var email: String
     var visits: Int
+    var isLoyaltyMember: Bool
     
     init(name: String, email: String, visits: Int){
         self.name = name
         self.email = email
         self.visits = visits
+        self.isLoyaltyMember = false
     }
     
     func summary() -> String {

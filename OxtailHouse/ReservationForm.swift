@@ -48,7 +48,6 @@ struct ReservationForm: View {
     var body: some View {
         Form {
             Section {
-                Image("littleLemonLogo")
                 Text(restaurantName)
                     .font(.title)
                     .bold()

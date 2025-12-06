@@ -88,11 +88,6 @@ struct MenuView: View {
         
         VStack{
             VStack{
-                Image("littleLemonLogo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 50)
-                
                 Text("Today's Menu")
                     .font(.title2)
                     .bold()
